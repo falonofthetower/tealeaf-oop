@@ -1,4 +1,7 @@
 require 'pry'
+require_relative 'Base'
+require_relative 'Player'
+require_relative 'User'
+require_relative 'Computer'
 require_relative 'RockPaperScissors'
 require_relative 'Weapons'
-require_relative 'Player'

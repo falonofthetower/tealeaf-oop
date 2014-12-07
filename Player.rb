@@ -1,7 +1,4 @@
-class Player
-  attr_accessor :name, :cash, :choice
+class Player < Base
 
-  def self.cpu_choice
-    choice = Weapons::RESULTS.keys.sample
-  end
+  attr_accessor :name, :choice
 end

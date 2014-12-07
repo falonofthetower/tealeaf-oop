@@ -1,39 +1,38 @@
-class RockPaperScissors
-  require_relative 'loader'
+class RockPaperScissors < Base
 
-  def welcome(user)    
+  def initialize
+    @user = User.new
+    @computer = Computer.new
+  end
+
+  def welcome
     puts "Welcome to Rock Paper Scissors"
     puts "We need your name to continue"
-    user.name = gets.chomp
+    @user.name = gets.chomp
     puts "Welcome to to Rock Paper Scissors #{user.name}"
-    user.name
-  end
+    @user.name
+  end    
 
-  def play_round(user)
+  def compare
+    user_wins = Weapons::RESULTS.select {|k,v| v.key?(@computer.choice) && k == @user.choice }
+    computer_wins = Weapons::RESULTS.select {|k,v| v.key?(@user.choice) && k == @computer.choice }
+    if computer_wins.empty? && !user_wins.empty?
+      msg = user_wins[@user.choice][@computer.choice]
+      return "Your #{@user.choice.capitalize} #{msg} my #{@computer.choice.capitalize} you win!"
+    elsif user_wins.empty? && !computer_wins.empty?
+      msg = computer_wins[@computer.choice][@user.choice]
+      return "My #{@computer.choice.capitalize} #{msg} your #{@user.choice.capitalize} you lose!"
+    else
+      return "My #{@computer.choice.capitalize} Draws your #{@user.choice.capitalize} "
+    end
+  end 
+
+  def play_game    
+      @user.ask_name
     begin
-      weapons = Weapons.new
-      array = Weapons.array
-      list = ''      
-      i = 1
-      array.each do |each|
-        list << " (#{i}) #{each.to_s},"      
-        i += 1
-      end
-      puts "You must choose:#{list}".chop!
-      choice = gets.chomp.to_i
-    end until Weapons.valid? choice
-    user.choice = array[choice -= 1]
-  end
-
-  def cpu_round(cpu)
-    cpu.choice = Player::cpu_choice
-  end
-
-  def compare(user,cpu)
-    msg = Weapons.compare(user,cpu)
-  end
-
-  def result(msg)
-    puts msg
+      @user.make_choice
+      @computer.make_choice
+      puts msg = compare            
+    end until false
   end
 end
