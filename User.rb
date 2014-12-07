@@ -2,6 +2,7 @@ class User < Player
   attr_accessor :cash
 
   def initialize
+    # This will get used later
     @cash = 1000
   end
 
@@ -12,7 +13,7 @@ class User < Player
     self.name
   end
 
-  def make_choice
+  def choose_weapon
     begin
       weapons = Weapons.new
       array = Weapons.array
@@ -23,8 +24,8 @@ class User < Player
         i += 1
       end
       puts "You must choose:#{list}".chop!
-      choice = gets.chomp.to_i
-    end until Weapons.valid? choice
-    self.choice = array[choice -= 1]
+      weapon = gets.chomp.to_i
+    end until Weapons.valid? weapon
+    self.weapon = array[weapon -= 1]
   end 
 end

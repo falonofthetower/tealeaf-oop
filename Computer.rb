@@ -1,6 +1,6 @@
 class Computer < Player
 
-  def make_choice
-    @choice = Weapons::RESULTS.keys.sample
+  def choose_weapon
+    @weapon = Weapons::RESULTS.keys.sample
   end
 end

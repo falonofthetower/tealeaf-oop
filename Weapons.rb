@@ -1,5 +1,5 @@
 class Weapons < Base
-  
+
    RESULTS =  { rock:      { scissors: 'crushes',    lizard:   'crushes' },
                 paper:     { spock:    'disproves',  rock:     'covers' },
                 scissors:  { paper:    'cuts',       lizard:   'decapitates' },
@@ -11,7 +11,7 @@ class Weapons < Base
       RESULTS.keys
   end
 
-  def self.valid?(choice)
-    choice.between?(1,RESULTS.count) ? true : false
+  def self.valid?(weapon)
+    weapon.between?(1,RESULTS.count) ? true : false
   end 
 end
