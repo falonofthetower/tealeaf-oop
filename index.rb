@@ -6,5 +6,5 @@ cpu = Player.new
 game.welcome(user)
 game.play_round(user)
 game.cpu_round(cpu)
-p user
-p cpu
+msg = game.compare(user,cpu)
+game.result(msg)
