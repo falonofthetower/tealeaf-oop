@@ -6,9 +6,9 @@ class Weapons < Model
                 scissors:  { paper:    'cuts',       lizard:   'decapitates' },
                 lizard:    { paper:    'eats',       spock:    'poisons' },
                 spock:     { rock:     'vaporizes',  scissors: 'smashes' }
-              }               
+              }
 
-  def valid?(choice)
-    true if choice.between?(1,RESULTS.count)
+  def self.valid?(choice)
+    choice.between?(1,RESULTS.count) ? true : false
   end
 end

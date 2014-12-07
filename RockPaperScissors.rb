@@ -1,6 +1,8 @@
 class RockPaperScissors < Controller
   require_relative 'config'  
 
+  
+  require 'pry'
   def welcome
     user = Player.new
     puts "Welcome to Rock Paper Scissors"
@@ -10,18 +12,19 @@ class RockPaperScissors < Controller
   end
 
   def play_round
-    weapons = ''
-    i = 1
-    Weapons::RESULTS.map.keys.each do 
-      weapons << " (#{i}) #{e.to_s},"
-      i += 1
-    end    
-    puts "You must choose:#{weapons}".chop!
-    if choice = gets.chomp.to_i
+    begin
+      weapons = Weapons.new
+      list = ''      
+      i = 1
+      Weapons::RESULTS.keys.each do |each|
+        list << " (#{i}) #{each.to_s},"      
+        i += 1
+      end
+      
+      puts "You must choose:#{list}".chop!
+      choice = gets.chomp.to_i
+      
+    end until Weapons.valid? choice
+    puts "You have chosen well"
   end
-
-  foo.each do |variable|
-    
-  end
-
 end
