@@ -20,10 +20,8 @@ class RockPaperScissors < Controller
         list << " (#{i}) #{each.to_s},"      
         i += 1
       end
-      
       puts "You must choose:#{list}".chop!
-      choice = gets.chomp.to_i
-      
+      choice = gets.chomp.to_i      
     end until Weapons.valid? choice
     puts "You have chosen well"
   end
