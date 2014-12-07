@@ -29,7 +29,7 @@ class RockPaperScissors < Base
   end 
 
   def play_game    
-      user.ask_name
+    user.ask_name
     begin
       user.make_choice
       computer.make_choice
