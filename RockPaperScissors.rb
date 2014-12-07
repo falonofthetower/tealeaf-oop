@@ -14,7 +14,7 @@ class RockPaperScissors < Base
     user.name
   end    
 
-  def compare
+  def compare_weapons
     user_wins = Weapons::RESULTS.select {|k,v| v.key?(computer.weapon) && k == user.weapon }
     computer_wins = Weapons::RESULTS.select {|k,v| v.key?(user.weapon) && k == computer.weapon }
     if computer_wins.empty? && !user_wins.empty?
@@ -33,7 +33,7 @@ class RockPaperScissors < Base
     begin
       user.choose_weapon
       computer.choose_weapon
-      puts msg = compare            
+      puts msg = compare_weapons           
     end until false
   end
 end
