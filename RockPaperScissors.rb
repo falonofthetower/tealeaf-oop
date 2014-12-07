@@ -1,17 +1,10 @@
 class RockPaperScissors < Base
+  attr_accessor :user, :computer
 
   def initialize
     @user = User.new
     @computer = Computer.new
-  end
-
-  def welcome
-    puts "Welcome to Rock Paper Scissors"
-    puts "We need your name to continue"
-    @user.name = gets.chomp
-    puts "Welcome to to Rock Paper Scissors #{user.name}"
-    @user.name
-  end    
+  end  
 
   def compare
     user_wins = Weapons::RESULTS.select {|k,v| v.key?(@computer.choice) && k == @user.choice }
@@ -28,11 +21,11 @@ class RockPaperScissors < Base
   end 
 
   def play_game    
-      @user.ask_name
+    user.ask_name
     begin
-      @user.make_choice
-      @computer.make_choice
+      user.make_choice
+      computer.make_choice
       puts msg = compare            
-    end until false
+    end until false    
   end
 end

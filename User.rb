@@ -1,4 +1,9 @@
 class User < Player 
+  attr_accessor :cash
+
+  def initialize
+    @cash = 1000
+  end
 
   def ask_name
     puts "We need your name to continue"
