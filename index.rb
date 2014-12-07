@@ -1,5 +1,7 @@
 require_relative 'config'
 
 game = RockPaperScissors.new
-game.welcome
-game.play_round
+user = Player.new
+user.name = game.welcome(user)
+game.play_round(user)
+p user
