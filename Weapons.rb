@@ -1,5 +1,4 @@
-
-class Weapons < Model
+class Weapons
 
    RESULTS =  { rock:      { scissors: 'crushes',    lizard:   'crushes' },
                 paper:     { spock:    'disproves',  rock:     'covers' },
@@ -11,7 +10,6 @@ class Weapons < Model
   def self.array
       RESULTS.keys
   end
-
 
   def self.valid?(choice)
     choice.between?(1,RESULTS.count) ? true : false

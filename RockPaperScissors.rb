@@ -1,7 +1,7 @@
-class RockPaperScissors < Controller  
-  require_relative 'config'    
+class RockPaperScissors
+  require_relative 'loader'
+
   def welcome(user)    
-    #user = Player.new
     puts "Welcome to Rock Paper Scissors"
     puts "We need your name to continue"
     user.name = gets.chomp
@@ -23,11 +23,10 @@ class RockPaperScissors < Controller
       choice = gets.chomp.to_i
     end until Weapons.valid? choice
     user.choice = array[choice -= 1]
-    puts "You have chosen well"
   end
 
   def cpu_round(cpu)
-    cpu.choice = Player::make_choice
+    cpu.choice = Player::cpu_choice
   end
 
   def compare(user,cpu)

@@ -1,5 +1,4 @@
-require_relative 'config'
-
+require_relative 'loader'
 game = RockPaperScissors.new
 user = Player.new
 cpu = Player.new
