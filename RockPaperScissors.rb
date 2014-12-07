@@ -1,5 +1,4 @@
-class RockPaperScissors < Base
-  attr_accessor :user, :computer
+class RockPaperScissors < Base  
 
   def initialize
     @user = User.new
