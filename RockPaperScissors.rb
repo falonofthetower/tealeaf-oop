@@ -23,4 +23,8 @@ class RockPaperScissors < Controller
     end until Weapons.valid? user.choice
     puts "You have chosen well"
   end
+
+  def cpu_round(cpu)
+    cpu.choice = Player::make_choice
+  end
 end
