@@ -1,4 +1,4 @@
 class Player < Base
-
-  attr_accessor :name, :weapon
+  attr_accessor :name, :weapon, :wins
+  
 end

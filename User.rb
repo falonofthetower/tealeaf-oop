@@ -1,9 +1,9 @@
 class User < Player 
-  attr_accessor :cash
+  attr_accessor :cash, :wins
 
-  def initialize
-    # This will get used later
+  def initialize    
     @cash = 1000
+    @wins = 0    
   end
 
   def ask_name
