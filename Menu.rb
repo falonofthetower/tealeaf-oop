@@ -16,7 +16,7 @@ class Menu < Base
       user.add_fate
     end until (valid_input?(input,:intro) == true)
     user.horrible_fate if input == "n"                
-  end  
+  end
 
   def valid_input?(input,question)
      VALID.values_at(question).flatten.include?(input)

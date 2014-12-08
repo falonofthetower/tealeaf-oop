@@ -35,6 +35,10 @@ class RockPaperScissors < Base
     self.result = []
   end 
 
+  def passes_on?
+    
+  end
+
   def play_game
     welcome(user)
     begin

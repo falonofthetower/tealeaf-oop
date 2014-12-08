@@ -1,7 +1,7 @@
 class User < Player 
   attr_accessor :cash, :wins, :fate_count, :user, :name
 
-  FATES = ["eaten by a bear", "devoured by a lion", "struck by lighting...and then he died!"]
+  FATES = ["eaten by a bear", "devoured by a lion", "struck by lighting...and then he died!", "eaten by a grue"]
   
   def horrible_fate
     fate = "Here lies #{self.name} #{FATES.sample}"
@@ -26,8 +26,15 @@ class User < Player
 
   def ask_name
     puts "We need your name to continue"
-    @name = gets.chomp
-  end
+    begin
+      @name = gets.chomp
+      if @name != ''
+        puts "Thank you @name"
+      else
+        puts "You must tell me your name"
+      end
+    end until @name != ''
+  end    
 
   def add_fate
     self.fate_count += 1
