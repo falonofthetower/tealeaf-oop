@@ -1,4 +1,5 @@
 class Weapons < Base
+  attr_reader :user
 
    RESULTS =  { rock:      { scissors: 'crushes',    lizard:   'crushes' },
                 paper:     { spock:    'disproves',  rock:     'covers' },
@@ -11,7 +12,7 @@ class Weapons < Base
       RESULTS.keys
   end
 
-  def self.valid?(weapon)
+  def self.valid?(weapon)    
     weapon.between?(1,RESULTS.count) ? true : false
   end 
 end

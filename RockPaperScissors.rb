@@ -6,15 +6,7 @@ class RockPaperScissors < Base
     @user = User.new
     @computer = Computer.new
     @result = []    
-  end
-
-  def welcome
-    puts "Welcome to Rock Paper Scissors"
-    puts "We need your name to continue"
-    user.name = gets.chomp
-    puts "Welcome to to Rock Paper Scissors #{user.name}"
-    user.name
-  end    
+  end   
 
   def compare_weapons
     user_wins = Weapons::RESULTS.select {|k,v| v.key?(computer.weapon) && k == user.weapon }
