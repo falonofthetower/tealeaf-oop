@@ -1,5 +1,5 @@
 class User < Player 
-  attr_accessor :cash, :wins, :fate_count, :user
+  attr_accessor :cash, :wins, :fate_count, :user, :name
 
   FATES = ["eaten by a bear", "devoured by a lion", "struck by lighting...and then he died!"]
   
@@ -13,16 +13,13 @@ class User < Player
     @cash = 1000
     @wins = 0
     @fate_count = 0
+    ask_name
   end
 
   def ask_name
     puts "We need your name to continue"
-    self.name = gets.chomp
-    puts "Welcome to to Rock Paper Scissors #{self.name}"
-    self.name
+    @name = gets.chomp
   end
-
-
 
   def add_fate
     self.fate_count += 1
