@@ -1,16 +1,15 @@
 class User < Player 
-  attr_accessor :cash, :wins
+  attr_accessor :cash, :wins, :name
 
   def initialize    
     @cash = 1000
-    @wins = 0    
+    @wins = 0
+    ask_name
   end
 
   def ask_name
     puts "We need your name to continue"
-    self.name = gets.chomp
-    puts "Welcome to to Rock Paper Scissors #{self.name}"
-    self.name
+    @name = gets.chomp
   end
 
   def choose_weapon

@@ -8,12 +8,8 @@ class RockPaperScissors < Base
     @result = []    
   end
 
-  def welcome
-    puts "Welcome to Rock Paper Scissors"
-    puts "We need your name to continue"
-    user.name = gets.chomp
-    puts "Welcome to to Rock Paper Scissors #{user.name}"
-    user.name
+  def welcome(user)
+    puts "Welcome to Rock Paper Scissors, #{user.name}"
   end    
 
   def compare_weapons
@@ -39,8 +35,8 @@ class RockPaperScissors < Base
     self.result = []
   end 
 
-  def play_game    
-    user.ask_name
+  def play_game
+    welcome(user)
     begin
       user.choose_weapon
       computer.choose_weapon
