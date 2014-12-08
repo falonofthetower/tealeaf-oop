@@ -4,11 +4,19 @@ class User < Player
   FATES = ["eaten by a bear", "devoured by a lion", "struck by lighting...and then he died!"]
   
   def horrible_fate
-    puts "Here lies #{self.name} #{FATES.sample}"
+    fate = "Here lies #{self.name} #{FATES.sample}"
+    epitaph(fate)
+    puts fate
     puts "GAME OVER"
     abort
   end
-  
+
+  def epitaph(fate)
+    graveyard = File.open("saves/graveyard.txt", "a")
+    graveyard.puts fate
+    graveyard.close
+  end
+
   def initialize    
     @cash = 1000
     @wins = 0
