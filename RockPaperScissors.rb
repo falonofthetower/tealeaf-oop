@@ -8,6 +8,10 @@ class RockPaperScissors < Base
     @result = []    
   end   
 
+  def welcome(user)
+    puts "Welcome to Rock Paper Scissors, #{user.name}"
+  end    
+
   def compare_weapons
     user_wins = Weapons::RESULTS.select {|k,v| v.key?(computer.weapon) && k == user.weapon }
     computer_wins = Weapons::RESULTS.select {|k,v| v.key?(user.weapon) && k == computer.weapon }
@@ -31,8 +35,8 @@ class RockPaperScissors < Base
     self.result = []
   end 
 
-  def play_game    
-    user.ask_name
+  def play_game
+    welcome(user)
     begin
       user.choose_weapon
       computer.choose_weapon
