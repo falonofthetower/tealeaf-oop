@@ -12,7 +12,7 @@ class User < Player
   end
 
   def epitaph(fate)
-    graveyard = File.open("saves/graveyard.txt", "a")
+    graveyard = File.open("graveyard.txt", "a")
     graveyard.puts fate
     graveyard.close
   end
