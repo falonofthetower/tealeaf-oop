@@ -2,13 +2,6 @@ class User < Player
   attr_accessor :cash, :wins, :fate_count, :user, :name
 
   FATES = ["eaten by a bear", "devoured by a lion", "struck by lighting...and then he died!", "eaten by a grue"]
-
-  def initialize    
-    @cash = 1000
-    @wins = 0
-    @fate_count = 0
-    ask_name
-  end  
   
   def horrible_fate
     fate = "Here lies #{self.name} #{FATES.sample}"
@@ -22,6 +15,13 @@ class User < Player
     graveyard = File.open("graveyard.txt", "a")
     graveyard.puts fate
     graveyard.close
+  end
+
+  def initialize    
+    @cash = 1000
+    @wins = 0
+    @fate_count = 0
+    ask_name
   end
 
   def ask_name
@@ -61,5 +61,15 @@ class User < Player
       self.add_fate unless Weapons.valid? weapon      
     end until Weapons.valid? weapon
     self.weapon = array[weapon -= 1]
-  end 
+  end
+  
+  def choose_square
+    begin
+      puts "Which square would you like?"
+      puts "Pick from #{Board.valid_squares}"
+      square = gets.chomp
+      self.add_fate Board.valid? square
+    end until Board.valid? square
+    square
+  end
 end
