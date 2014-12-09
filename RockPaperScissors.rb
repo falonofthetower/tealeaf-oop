@@ -1,4 +1,4 @@
-class RockPaperScissors < Base
+class RockPaperScissors < Loader
   attr_accessor :result
   attr_reader :user, :computer
 

@@ -1,4 +1,4 @@
-class Menu < Base
+class Menu < Loader
   attr_accessor :user, :fate_count
 
   VALID = { intro: ["y","n"] }

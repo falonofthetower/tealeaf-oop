@@ -1,3 +1,3 @@
-class Base
+class Loader
 	require_relative 'loader'
 end

@@ -1,4 +1,4 @@
-class Weapons < Base
+class Weapons < Loader
   attr_reader :user
 
    RESULTS =  { rock:      { scissors: 'crushes',    lizard:   'crushes' },

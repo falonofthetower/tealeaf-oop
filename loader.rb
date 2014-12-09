@@ -1,5 +1,5 @@
 require 'pry'
-require_relative 'Base'
+#require_relative 'Loader'
 require_relative 'Fates'
 require_relative 'Player'
 require_relative 'User'

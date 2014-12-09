@@ -2,6 +2,13 @@ class User < Player
   attr_accessor :cash, :wins, :fate_count, :user, :name
 
   FATES = ["eaten by a bear", "devoured by a lion", "struck by lighting...and then he died!", "eaten by a grue"]
+
+  def initialize    
+    @cash = 1000
+    @wins = 0
+    @fate_count = 0
+    ask_name
+  end  
   
   def horrible_fate
     fate = "Here lies #{self.name} #{FATES.sample}"
@@ -15,13 +22,6 @@ class User < Player
     graveyard = File.open("graveyard.txt", "a")
     graveyard.puts fate
     graveyard.close
-  end
-
-  def initialize    
-    @cash = 1000
-    @wins = 0
-    @fate_count = 0
-    ask_name
   end
 
   def ask_name
